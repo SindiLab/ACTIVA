@@ -62,11 +62,10 @@ parser.add_argument("--m_plus", type=float, default=150.0, help="the margin in t
 
 ## loss weighting for multi-tasking
 parser.add_argument("--softAdapt", default = False, action='store_true', help="Whether to use adaptive weighting, default =False")
+# this is the 1/2 in before L_AE and L_CT
 parser.add_argument("--weight_neg", type=float, default=0.5, help="Default=0.5")
-# parser.add_argument("--weight_rec", type=float, default=0.05, help="Default=0.05")
-parser.add_argument("--weight_rec", type=float, default=10, help="Default=0.05")
-# parser.add_argument("--weight_kl", type=float, default=1, help="Default=1.0")
-parser.add_argument("--weight_kl", type=float, default=10, help="Default=1.0")
+parser.add_argument("--weight_rec", type=float, default=0.05, help="Default=0.05")
+parser.add_argument("--weight_kl", type=float, default=1, help="Default=1.0")
 
 parser.add_argument("--alpha_1", type=float, default=0.5, help="Default=0.5")
 parser.add_argument("--alpha_2", type=float, default=0.5, help="Default=0.25")
