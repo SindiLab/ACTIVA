@@ -45,7 +45,7 @@ parser = argparse.ArgumentParser()
 # input data 
 parser.add_argument('--data_type', type=str, default="scanpy", help='type of train/test data, default="scanpy"')
 parser.add_argument('--data_path', type=str, default="", help="absolute path to where the data is stored")
-parser.add_argument('--example_data', type=str, default="pbmc", help="to run one of the example datasets in our paper")
+parser.add_argument('--example_data', type=str, default="20k brain", help="to run one of the example datasets in our paper")
 parser.add_argument('--batchSize', type=int, default=128, help='input batch size')
 
 parser.add_argument("--save_iter", type=int, default=1, help="Default=1")
@@ -140,8 +140,8 @@ def main():
             # figure out a way to find the number of classes automatically
             number_of_classes = 10 
             
-        elif example_data == '20k brain':
-            print("Brain")
+        elif opt.example_data == '20k brain':
+            print("Brain Small")
             # Mouse Brain 20K
             train_data_loader, valid_data_loader = Scanpy_IO('/home/ubuntu/scGAN_ProcessedData/MADE_BY_scGAN/20Kneurons_2KTest.h5',
                                                         batchSize=opt.batchSize, 
@@ -161,11 +161,11 @@ def main():
     
     elif opt.data_type.lower() == "csv":
         # if we have CSV turned to h5 (pandas dataframe)
-        train_path = "/home/ubuntu/SCRealVAE_68K/ACTINN_Data/68K_h5/train.h5"
-        train_lab_path = "/home/ubuntu/SCRealVAE_68K/ACTINN_Data/68K_h5/train_lab.csv"
+        train_path = "/home/ubuntu/ACTINN_Data/68K_h5/train.h5"
+        train_lab_path = "/home/ubuntu/ACTINN_Data/68K_h5/train_lab.csv"
 
-        test_path= "/home/ubuntu/SCRealVAE_68K/ACTINN_Data/68K_h5/test.h5"
-        test_lab_path= "/home/ubuntu/SCRealVAE_68K/ACTINN_Data/68K_h5/test_lab.csv"
+        test_path= "/home/ubuntu/ACTINN_Data/68K_h5/test.h5"
+        test_lab_path= "/home/ubuntu/ACTINN_Data/68K_h5/test_lab.csv"
 
         train_data_loader, valid_data_loader = CSV_IO(train_path, train_lab_path, test_path, test_lab_path,
                                                 batchSize=opt.batchSize,
@@ -173,7 +173,7 @@ def main():
 
         # get input output information for the network
         inp_size = [batch[0].shape[1] for _, batch in enumerate(train_data_loader, 0)][0];
-        number_of_classes = 9
+        number_of_classes = 10
         print(f"==> Number of classes {number_of_classes}")
         print(f"==> Number of features {inp_size}")
 
