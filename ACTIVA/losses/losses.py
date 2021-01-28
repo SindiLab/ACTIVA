@@ -6,9 +6,12 @@ from torch.autograd import Variable
 from torch.nn.parallel import data_parallel
 import torch.multiprocessing as multiprocessing
 
-
+"""
+Here we list the losses as separate functions (instead of ACTIVA methods)
+for modular use, in case needed in debugging or evaluation
+"""
     
-def kl_loss(self, mu, covariance, prior_mu=0):
+def kl_loss(mu, covariance, prior_mu=0):
     """
         
     KL-divergence loss using the shorthand notation in this paper: https://arxiv.org/pdf/1807.06358.pdf
@@ -20,7 +23,7 @@ def kl_loss(self, mu, covariance, prior_mu=0):
         
     return v_kl
     
-def reconstruction_loss(self, prediction, target, size_average=False):     
+def reconstruction_loss(prediction, target, size_average=False):     
     """
         
     Reconstruction loss for the output of the decoder and the original data (essentially MSE)
@@ -38,7 +41,7 @@ def reconstruction_loss(self, prediction, target, size_average=False):
     return error
     
     
-def classification_loss(self, cf_prediction, cf_target, size_average=False):     
+def classification_loss(cf_prediction, cf_target, size_average=False):     
     """
         
     Cell type prediction loss between then generated cells and the real cells

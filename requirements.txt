@@ -1,6 +1,8 @@
 tqdm==4.47.0
+pandas==1.2.0
 torch==1.5.1
 numpy==1.18.5
 scanpy==1.6.0
 tensorboardX==2.1
 -e git://github.com/SindiLab/ACTINN-PyTorch.git#egg=ACTINN
+-e git://github.com/dr-aheydari/SoftAdapt.git#egg=SoftAdapt

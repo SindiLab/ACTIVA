@@ -45,22 +45,22 @@ def load_model(model, pretrained, classifier_model:bool=False):
             return model        
         
 
-def save_checkpoint(model, epoch, iteration, m, prefix="", classifier_model=None):
+def save_checkpoint(model, epoch, iteration, m, prefix="", classifer_model=None):
         """
         Utility function for saving ACTIVA model, including the IntroVAE and Classifier part
         INPUT:
-            model               -> the IntroVAE part of ACTIVA
-            epoch               -> current epoch in training
-            iteration           -> current iteration in training 
-            m                   -> the value of adversarial constant m
-            prefix (optional)   -> prefix for the saved filenames
-            classifier(optional)-> if wanting to save the classifier model as well (recommended)
+            model                    -> the IntroVAE part of ACTIVA
+            epoch                    -> current epoch in training (for naming)
+            iteration                -> current iteration in training (for naming)
+            m                        -> the value of adversarial constant m (for naming)
+            prefix (optional)        -> prefix for the saved filenames (for naming)
+            classifer_model(optional)-> the classifier model you want to save withing ACTIVA (recommended)
             
         """
         
         dir_path =  './' + prefix + f"-m{int(m)}-Saved_Model/"
         model_out_path = dir_path + f"model_epoch_{epoch}_iter_{iteration}.pth"
-        if not classifier_model:
+        if not save_classifier:
             state = {"epoch": epoch ,"Saved_Model": model}
         else:
             state = {"epoch": epoch ,"Saved_Model": model, "Classifier_Model":classifier_model}

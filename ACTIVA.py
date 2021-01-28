@@ -131,7 +131,7 @@ def main():
         
         if opt.example_data == 'pbmc':
             print("PBMC")
-            train_data_loader, valid_data_loader = Scanpy_IO('/home/ubuntu/RawData/raw_68kPBMCs.h5ad',
+            train_data_loader, valid_data_loader = Scanpy_IO('/home/ubuntu/scGAN_ProcessedData/MADE_BY_scGAN/68kPBMCs_7kTest.h5ad',
                                                         test_no_valid = True,
                                                         batchSize=opt.batchSize, 
                                                         workers = opt.workers,
@@ -461,7 +461,7 @@ def main():
             if epoch % opt.cf_print_frequency == 0 and epoch != 0:
                 evaluate_classifier(valid_data_loader, cf_model)
                 save_epoch = (epoch//opt.save_iter)*opt.save_iter   
-#                 save_checkpoint_classifier(cf_model, save_epoch, 0, '')
+                save_checkpoint_classifier(cf_model, save_epoch, 0, '')
 
             cf_model.train()
             for iteration, batch in enumerate(train_data_loader, 0):
@@ -480,19 +480,18 @@ def main():
     
     
     #----------------Train by epochs--------------------------
-    for epoch in tqdm(range(opt.start_epoch, opt.nEpochs + 1), desc="SCVI Training"): 
+    for epoch in tqdm(range(opt.start_epoch, opt.nEpochs + 1), desc="ACTIVA Training"): 
         
         #save the variational model
         if epoch % opt.print_frequency == 0 :
-            save_epoch = (epoch//opt.save_iter)*opt.save_iter   
-            save_checkpoint(model, save_epoch, 0, opt.m_plus, f'{opt.example_data}-SoftAdapt')
+            save_epoch = (epoch//opt.save_iter)*opt.save_iter  
+            # save both the IntroVAE and conditioner part of ACTIVA
+            save_checkpoint(model, save_epoch, 0, opt.m_plus, f'{opt.example_data}-', cf_model)
             
         # save the classifier model 
         if epoch % opt.cf_print_frequency == 0 and epoch != 0:
             evaluate_classifier(valid_data_loader, cf_model)
             save_epoch = (epoch//opt.save_iter)*opt.save_iter  
-            # if we want to save the classifier
-#             save_checkpoint_classifier(cf_model, save_epoch, 0, f'{opt.example_data}-Classifier')
 
         model.train()
         for iteration, batch in enumerate(train_data_loader, 0):
