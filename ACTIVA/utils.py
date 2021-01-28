@@ -45,7 +45,7 @@ def load_model(model, pretrained, classifier_model:bool=False):
             return model        
         
 
-def save_checkpoint(model, epoch, iteration, m, prefix="", classifer_model=None):
+def save_checkpoint(model, epoch, iteration, m, prefix="", classifier_model=None):
         """
         Utility function for saving ACTIVA model, including the IntroVAE and Classifier part
         INPUT:
