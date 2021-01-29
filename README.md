@@ -20,7 +20,7 @@ and our pre-trained models can be freely accessed using the following URIs:
 
 | Model          |                                                URI                                              |
 |:-------------:|:-------------------------------------------------------------------------------------------------:|
-|  Brain Small  |  s3://activa-material/Model-Weights/68K\ PBMC/ACTIVA_BrainSamll.pth            |
+|  Brain Small  |  s3://activa-material/Model-Weights/20K\ Brain\ Small/ACTIVA_BrainSamll.pth            |
 |    68K PBMC   |  s3://activa-material/Model-Weights/68K\ PBMC/ACTIVA_68kPBMC.pth            |
 
 
