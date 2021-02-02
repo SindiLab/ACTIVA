@@ -25,12 +25,23 @@ and our pre-trained models can be freely accessed using the following URIs:
 
 
 ### Installing the package:
-The code can be run either directly or through a package model; that is, you can install `ACTIVA` package locally and just import. This can be done with `pip`:
+The code can be run either directly or through a package structure (recommended); that is, you can install `ACTIVA` package locally and just import the needed classes/methods/functions as needed. It is important to note that since ACTIVA uses two homemade packages (ACTINN and SoftAdapt) on GitHub, installing `requirements.txt` in advance is recommended.
 
+#### Step 1: Install Requirements Explicitly
+This can be done with `pip`:
+
+````bash
+pip install -r PATH/TO/requirements.txt
 ````
-# assuming you are in the same directory as setup.py
+#### Step 2: Install Requirements Explicitly
+
+This can also be done with `pip`:
+
+````bash
 pip install -e PATH/TO/FOLDER/WITH-setup.py
 ````
+For step 2, except a lot of the requirements to be satisfied already (since you installed the requirements in advance).
+
 
 ### Training the model:
 You can train the model by adding the appropriate flags on the bash call to python; any arguments that are not explicitly called will resort to the pre-define defaults. Here is an example of running the code on 8 GPU (after installing the package), with explicitely declaring the number of epochs and the learning rates:
