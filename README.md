@@ -1,5 +1,5 @@
 # ACTIVA: Realistic scRNAseq Generation with Automatic Cell-Type identification using Introspective Variational Autoencoders
-This Repository contains the package for ACTIVA (Single Cell generationg with Introspective Variational autoencoders).
+This Repository contains the package for [ACTIVA (Single Cell generationg with Introspective Variational autoencoders)](https://www.biorxiv.org/content/10.1101/2021.01.28.428725v1).
 
 
 ## Data and Pre-Trained Models Availability 
@@ -59,13 +59,17 @@ CUDA_VISIBLE_DEVICE=0,1 python ACTIVA.py --pretrained 'PATH/TO/CHKPT'  --nEpochs
 ## Citation
 
 Please cite our repository if it was useful for your research:
-(link to pre-print coming soon)
-```
-@misc{Heydari2021,
-  author = {Heydari, A. Ali},
-  title = {ACTIVA: realistic single-cell RNA-seq generation with automatic cell-type identification using Introspective Variational Autoencoder},
-  year = {2020},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/SindiLab/ACTIVA}},
+````
+@article {Heydari_ACTIVA,
+	author = {Heydari, A. Ali and Davalos, Oscar A. and Zhao, Lihong and Hoyer, Katrina K. and Sindi, Suzanne S.},
+	title = {ACTIVA: realistic single-cell RNA-seq generation with automatic cell-type identification using introspective variational autoencoders},
+	elocation-id = {2021.01.28.428725},
+	year = {2021},
+	doi = {10.1101/2021.01.28.428725},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2021/01/30/2021.01.28.428725},
+	eprint = {https://www.biorxiv.org/content/early/2021/01/30/2021.01.28.428725.full.pdf},
+	journal = {bioRxiv}
 }
+````
+
