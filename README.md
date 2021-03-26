@@ -40,7 +40,7 @@ This can also be done with `pip`:
 ````bash
 pip install -e PATH/TO/FOLDER/WITH-setup.py
 ````
-For step 2, except a lot of the requirements to be satisfied already (since you installed the requirements in advance).
+For step 2, expect a lot of the requirements to be satisfied already (since you installed the requirements in advance).
 
 
 ### Training the model:
