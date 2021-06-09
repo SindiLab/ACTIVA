@@ -374,7 +374,7 @@ def main():
         
         
         rec_mu, rec_logvar = model.encode(rec.detach())
-        fake_mu, fake_logvar = model.encode(rec.detach())
+        fake_mu, fake_logvar = model.encode(fake.detach())
         loss_rec =  model.reconstruction_loss(rec, real, True)
         
         lossE_real_kl = model.kl_loss(real_mu, real_logvar).mean()
