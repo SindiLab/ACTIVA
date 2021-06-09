@@ -9,10 +9,10 @@ All of our data can be freely downloaded using the following addresses:
 |:-------------:|:-------------------------------------------------------------------------------------------------:|
 |  Raw Brain Small  |       https://support.10xgenomics.com/single-cell-gene-expression/datasets/1.3.0/1M_neurons       |
 |  Raw 68K PBMC   | https://support.10xgenomics.com/single-cell-gene-expression/datasets/1.1.0/fresh_68k_pbmc_donor_a |
-|  Pre-pocessed Brain Small  |   s3://activa-material/PreprocessedData/20kBrainSmall_preprocessed.h5                |
-|  Pre-pocessed 68K PBMC  |    s3://activa-material/PreprocessedData/68kPBMC_preprocessed.h5ad                      |
-|  Post-pocessed Brain Small              |   s3://activa-material/PostProcessedData/final_brainsmall_val_int_clust.h5ad|
-|  Post-pocessed 68K PBMC             |    s3://activa-material/PostProcessedData/final_68kpbmc_val_int_clust.h5ad|
+|  Pre-processed Brain Small  |   s3://activa-material/PreprocessedData/20kBrainSmall_preprocessed.h5                |
+|  Pre-processed 68K PBMC  |    s3://activa-material/PreprocessedData/68kPBMC_preprocessed.h5ad                      |
+|  Post-processed Brain Small              |   s3://activa-material/PostProcessedData/final_brainsmall_val_int_clust.h5ad|
+|  Post-processed 68K PBMC             |    s3://activa-material/PostProcessedData/final_68kpbmc_val_int_clust.h5ad|
 
 and our pre-trained models can be freely accessed using the following URIs:
 
