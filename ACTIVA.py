@@ -45,7 +45,7 @@ parser = argparse.ArgumentParser()
 # input data 
 parser.add_argument('--data_type', type=str, default="scanpy", help='type of train/test data, default="scanpy"')
 parser.add_argument('--data_path', type=str, default="", help="absolute path to where the data is stored")
-parser.add_argument('--example_data', type=str, default="20k brain", help="to run one of the example datasets in our paper")
+parser.add_argument('--example_data', type=str, default="covid", help="to run one of the example datasets in our paper")
 parser.add_argument('--batchSize', type=int, default=128, help='input batch size')
 
 parser.add_argument("--save_iter", type=int, default=1, help="Default=1")
@@ -81,7 +81,7 @@ parser.add_argument('--clip', type=float, default=100, help='the threshod for cl
 parser.add_argument("--step", type=int, default=500, help="Sets the learning rate to the initial LR decayed by momentum every n epochs, Default: n=500")
 parser.add_argument('--print_frequency', type=int, default=25, help='frequency of training stats printing for ACTIVA, default=25')
 parser.add_argument('--manualSeed', type=int, help='manual seed')
-parser.add_argument('--tensorboard', default=True ,action='store_true', help='enables tensorboard, default True')
+parser.add_argument('--tensorboard', default=False ,action='store_true', help='enables tensorboard, default True')
 parser.add_argument('--outf', default='./withL2-TensorBoard-z128/', help='folder to output training stats for tensorboard')
 parser.add_argument("--pretrained", default="", type=str, help="path to pretrained model (default: none)")
 
@@ -150,6 +150,23 @@ def main():
             # figure out a way to find the number of classes 
             number_of_classes = 8
         
+        elif opt.example_data == 'covid':
+            print("     -> Reading NeuroCOVID")
+            # 78K NeuroCOVID COVID_Data/NeuroCOVID/TrainSplitData/NeroCOVID_preprocessed_splitted.h5ad
+            # possibly another one to try: /home/ubuntu/RawData/78KNeuroCOVID_preprocessed_splitted_logged.h5ad'
+            train_data_loader, valid_data_loader = Scanpy_IO('/home/ubuntu/COVID_Data/NeuroCOVID/TrainSplitData/NeroCOVID_preprocessed_splitted.h5ad',
+                                                        test_no_valid = True,
+                                                        batchSize=opt.batchSize, 
+                                                        workers = opt.workers,
+                                                        log=False,
+                                                        verbose = 1)
+            
+            inp_size = [batch[0].shape[1] for _, batch in enumerate(valid_data_loader, 0)][0];
+            labs = [batch[1] for _, batch in enumerate(valid_data_loader, 0)][0];
+            # figure out a way to find the number of classes 
+            number_of_classes = 9
+            print(f"==> Number of classes {number_of_classes}")
+            print(f"==> Number of genes {inp_size}")
 
         # get input output information for the network
         inp_size = [batch[0].shape[1] for _, batch in enumerate(valid_data_loader, 0)][0];
@@ -486,7 +503,8 @@ def main():
         if epoch % opt.print_frequency == 0 :
             save_epoch = (epoch//opt.save_iter)*opt.save_iter  
             # save both the IntroVAE and conditioner part of ACTIVA
-            save_checkpoint(model, save_epoch, 0, opt.m_plus, f'{opt.example_data}-', cf_model)
+#             save_checkpoint(model, save_epoch, 0, opt.m_plus, f'{opt.example_data}-', classifier_model=cf_model)
+            save_checkpoint(model, save_epoch, 0, opt.m_plus, f'{opt.example_data}-', classifier_model=cf_model)
             
         # save the classifier model 
         if epoch % opt.cf_print_frequency == 0 and epoch != 0:

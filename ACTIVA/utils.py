@@ -60,7 +60,7 @@ def save_checkpoint(model, epoch, iteration, m, prefix="", classifier_model=None
         
         dir_path =  './' + prefix + f"-m{int(m)}-Saved_Model/"
         model_out_path = dir_path + f"model_epoch_{epoch}_iter_{iteration}.pth"
-        if not classifer_model:
+        if not classifier_model:
             state = {"epoch": epoch ,"Saved_Model": model}
         else:
             state = {"epoch": epoch ,"Saved_Model": model, "Classifier_Model":classifier_model}
