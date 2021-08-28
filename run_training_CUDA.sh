@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0 python ACTIVA.py --m_plus 110 --num_vae 10 --num_cf 5 --nEpochs 600 
+CUDA_VISIBLE_DEVICES=0 python ACTIVA.py --m_plus 110 --num_vae 10 --num_cf 5 --nEpochs 500 
 
 ## to run on multiple GPUs
 # CUDA_VISIBLE_DEVICES=0,1,2,3 python ACTIVA.py --m_plus 110 --num_vae 10 --num_cf 5 --nEpochs 500 
