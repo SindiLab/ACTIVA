@@ -152,9 +152,8 @@ def main():
         
         elif opt.example_data == 'covid':
             print("     -> Reading NeuroCOVID")
-            # 78K NeuroCOVID COVID_Data/NeuroCOVID/TrainSplitData/NeroCOVID_preprocessed_splitted.h5ad
-            # possibly another one to try: /home/ubuntu/RawData/78KNeuroCOVID_preprocessed_splitted_logged.h5ad'
-            train_data_loader, valid_data_loader = Scanpy_IO('/home/ubuntu/COVID_Data/NeuroCOVID/TrainSplitData/NeroCOVID_preprocessed_splitted.h5ad',
+            # 78K NeuroCOVID COVID data from https://doi.org/10.1016/j.immuni.2020.12.011
+            train_data_loader, valid_data_loader = Scanpy_IO('/home/ubuntu/COVID_Data/NeuroCOVID/TrainSplitData/NeuroCOVID_preprocessed_splitted.h5ad',
                                                         test_no_valid = True,
                                                         batchSize=opt.batchSize, 
                                                         workers = opt.workers,
