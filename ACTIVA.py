@@ -162,8 +162,9 @@ def main():
             
             inp_size = [batch[0].shape[1] for _, batch in enumerate(valid_data_loader, 0)][0];
             labs = [batch[1] for _, batch in enumerate(valid_data_loader, 0)][0];
-            # figure out a way to find the number of classes 
-            number_of_classes = 9
+            
+            # using the same number of classes as the authors find in Heming et al.
+            number_of_classes = 16
             print(f"==> Number of classes {number_of_classes}")
             print(f"==> Number of genes {inp_size}")
 
