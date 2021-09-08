@@ -36,7 +36,7 @@ class Encoder(nn.Module):
     def forward(self, x):        
         """
         
-        Forward pass of the encoder: write out the actual dimensions and shit
+        Forward pass of the encoder
         
         """
 
