@@ -53,7 +53,7 @@ class Decoder(nn.Module):
     def forward(self, z):
         """
             
-        Forward pass of the Decoder: write out the actual dimensions and shit
+        Forward pass of the Decoder
             
         """
         
