@@ -1,6 +1,9 @@
 # ACTIVA: Realistic scRNAseq Generation with Automatic Cell-Type identification using Introspective Variational Autoencoders
 This Repository contains the package for [ACTIVA (Single Cell generationg with Introspective Variational autoencoders)](https://www.biorxiv.org/content/10.1101/2021.01.28.428725v1).
 
+## Tutorials
+Tutorials for using ACTIVA are avaialable [here](https://github.com/SindiLab/Tutorials/tree/main/ACTIVA)
+
 
 ## Data and Pre-Trained Models Availability 
 All of our data can be freely downloaded using the following addresses:
