@@ -1,8 +1,11 @@
 tqdm==4.47.0
 pandas==1.2.0
-torch==1.5.1
 numpy==1.18.5
-scanpy==1.6.0
+scanpy==1.7.0
 tensorboardX==2.1
 -e git://github.com/SindiLab/ACTINN-PyTorch.git#egg=ACTINN
 -e git://github.com/dr-aheydari/SoftAdapt.git#egg=SoftAdapt
+# if you are NOT using A100 GPUs
+torch=1.9.1
+# if you ARE using A100 GPUs, comment out the above requirement and run this separately
+# pip install torch==1.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
