@@ -3,7 +3,7 @@ pandas==1.2.0
 numpy==1.18.5
 scanpy==1.7.0
 tensorboardX==2.1
--e git://github.com/SindiLab/ACTINN-PyTorch.git#egg=ACTINN
+git+http://github.com/SindiLab/ACTINN-PyTorch.git#egg=ACTINN
 # if you are NOT using A100 GPUs
 torch==1.9.1
 # if you ARE using A100 GPUs, comment out the above requirement and run this separately
