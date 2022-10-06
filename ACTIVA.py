@@ -58,8 +58,6 @@ parser.add_argument("--num_vae", type=int, default=10, help="the epochs of pretr
 
 parser.add_argument("--m_plus", type=float, default=150.0, help="the margin in the adversarial part, Default=150.0")
 
-## loss weighting for multi-tasking
-parser.add_argument("--softAdapt", default = False, action='store_true', help="Whether to use adaptive weighting, default =False")
 # this is the 1/2 in before L_AE and L_CT
 parser.add_argument("--weight_neg", type=float, default=0.5, help="Default=0.5")
 parser.add_argument("--weight_rec", type=float, default=0.05, help="Default=0.05")
@@ -107,8 +105,6 @@ str_to_list = lambda x: [int(xi) for xi in x.split(',')]
 def main():
     global opt, model
     opt = parser.parse_args()
-    # for SoftAdapt
-    make_args();
     
     # determin the device for torch 
     ## if we are allowed to run things on CUDA
@@ -399,22 +395,8 @@ def main():
                       (F.relu(opt.m_plus-lossE_rec_kl) + \
                       F.relu(opt.m_plus-lossE_fake_kl)) * 0.5 * opt.weight_neg
         
-        #------- Loss Weighting (Balancing Importance) -------
-        
-        if opt.softAdapt: 
-            
-            if cur_iter % len(train_data_loader) == 0 and cur_iter != 0: 
-                # store the most recent loss values
-                recent_loss_tensor = [loss_classification + loss_rec, loss_margin]
-                # pass to softadapt 
-                opt.alpha_1, opt.alpha_2 = Adapt(recent_loss_tensor, which_SA="loss-weighted", beta=0.1)
-                
-                print(f"alpha1:{opt.alpha_1}, alpha2:{opt.alpha_2}");
-                
-        else:
-            opt.alpha_1 = opt.weight_kl
-            opt.alpha_2 = opt.weight_rec
-         #---------------------------------
+        opt.alpha_1 = opt.weight_kl
+        opt.alpha_2 = opt.weight_rec
         
         lossE = opt.alpha_1 * loss_margin + opt.alpha_2 * (loss_classification + loss_rec) 
 
