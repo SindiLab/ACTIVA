@@ -18,8 +18,6 @@ from ACTIVA.utils import *
 from ACTINN import Classifier, Scanpy_IO, evaluate_classifier
 from ACTINN.utils import evaluate_classifier, save_checkpoint_classifier
 
-from SoftAdapt import Adapt, make_args
-
 # reading in single cell data using scanpy
 import scanpy as sc
 
