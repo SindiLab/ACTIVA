@@ -78,16 +78,21 @@ CUDA_VISIBLE_DEVICE=0,1 python ACTIVA.py --pretrained 'PATH/TO/CHKPT'  --nEpochs
 
 Please cite our repository if it was useful for your research:
 ````
-@article {Heydari_ACTIVA,
-	author = {Heydari, A. Ali and Davalos, Oscar A. and Zhao, Lihong and Hoyer, Katrina K. and Sindi, Suzanne S.},
-	title = {ACTIVA: realistic single-cell RNA-seq generation with automatic cell-type identification using introspective variational autoencoders},
-	elocation-id = {2021.01.28.428725},
-	year = {2021},
-	doi = {10.1101/2021.01.28.428725},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/early/2021/01/30/2021.01.28.428725},
-	eprint = {https://www.biorxiv.org/content/early/2021/01/30/2021.01.28.428725.full.pdf},
-	journal = {bioRxiv}
-}
+@article{HeydariEtAl,
+author = {Heydari, A. Ali and Davalos, Oscar A and Zhao, Lihong and Hoyer, Katrina K and Sindi, Suzanne S},
+date-added = {2023-01-23 12:50:22 -0800},
+date-modified = {2023-01-23 12:50:22 -0800},
+doi = {10.1093/bioinformatics/btac095},
+eprint = {https://academic.oup.com/bioinformatics/article-pdf/38/8/2194/43370117/btac095\_supplementary\_data.pdf},
+issn = {1367-4803},
+journal = {Bioinformatics},
+month = {02},
+number = {8},
+pages = {2194-2201},
+title = {{ACTIVA: realistic single-cell RNA-seq generation with automatic cell-type identification using introspective variational autoencoders}},
+url = {https://doi.org/10.1093/bioinformatics/btac095},
+volume = {38},
+year = {2022},
+bdsk-url-1 = {https://doi.org/10.1093/bioinformatics/btac095}}
 ````
 
